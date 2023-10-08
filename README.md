@@ -1,5 +1,5 @@
 # variadic_file_parser
-use of variadic templates along with deduction to parse csv like files. The separator can be other than ','
+use of variadic templates along with template type deduction to parse csv like files. The separator can be other than ','
 
 # Build
 g++ -Wall -pedantic -Wextra -g -O0 --std=c++23 main.cpp  -o demo
@@ -67,7 +67,7 @@ Q (replace say), followed by 2 integers, a double , a bool and then another doub
 Instead of writing tedious string find/manilulation code, this approach can be used to parse lines. All that is needed 
 is a declaration of the various types in client code, then invocation (call the "parse_line" method which takes variadic template parameters.
 From there the arguments are pealed off one by one until the base/terminal case is call. Using an index ("pos") into the input string (each line of the
-input file ("input.csv in this case) each data type is read and populated using stod/stof/stod or in this example a helper routine "convert" for booleans.
+input file ("input.csv in this case) each data type is read and populated using stod/stof/stod or in one of the examples a helper routine "convert" for booleans.
 
 Template argument deduction ensures that the appropriate "convert" routine is invoked (stod,stof,stoi or any other used defined convert routine. 
 Exceptions are handled and a relatively useful error message displayed.
